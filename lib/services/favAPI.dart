@@ -97,7 +97,7 @@ class FavouriteAPI {
       var body = jsonDecode(res.body);
       print(res.body);
       if (res.statusCode == 200) {
-        print("send sucssefuly");
+        print("FavLive send from api sucssefuly");
         return body;
       } else {
         print("failed");

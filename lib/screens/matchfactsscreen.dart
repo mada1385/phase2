@@ -11,11 +11,14 @@ class Matchfactsscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Goalscorer(match: match),
-        Matchcards(match: match),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(right: 20, left: 20, top: 20),
+      child: Column(
+        children: [
+          Goalscorer(match: match),
+          Matchcards(match: match),
+        ],
+      ),
     );
   }
 }

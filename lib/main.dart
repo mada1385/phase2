@@ -1,8 +1,9 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:gulfgoal/screens/splash_page.dart';
+import 'package:provider/provider.dart';
+import 'package:gulfgoal/screens/matchchatsceen.dart';
 import 'config/provider.dart';
 
 void main() async {

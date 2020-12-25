@@ -10,6 +10,7 @@ import 'package:gulfgoal/models/match.dart';
 import 'package:gulfgoal/screens/lineupscreen.dart';
 import 'package:gulfgoal/screens/matchfactsscreen.dart';
 import 'package:gulfgoal/screens/statsscreen.dart';
+import 'package:gulfgoal/screens/matchchatsceen.dart';
 
 import 'nointernetscreen.dart';
 
@@ -36,7 +37,8 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
       ),
       Matchfactsscreen(
         match: widget.match,
-      )
+      ),
+      Matchchatscreen()
     ];
     return ConnectivityWidgetWrapper(
       offlineWidget: Nointernetscreen(),
@@ -197,15 +199,35 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                                   fontsize: 12,
                                 )),
                           ),
+                          FlatButton(
+                            onPressed: () {
+                              setState(() {
+                                tapindex = 3;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                          color: tapindex == 3
+                                              ? accentcolor
+                                              : Colors.transparent,
+                                          width: 4))),
+                              child: Normaltext(
+                                string: "Chat",
+                                fontWeight: FontWeight.w600,
+                                color:
+                                    tapindex == 3 ? accentcolor : Colors.grey,
+                                fontsize: 12,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 20, left: 20, top: 20),
-                  child: detailscreen[tapindex],
-                )
+                detailscreen[tapindex]
               ],
             ),
           ),

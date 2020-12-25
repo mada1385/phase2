@@ -2,8 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/models/news.dart';
 import 'package:gulfgoal/models/teams.dart';
+import 'package:gulfgoal/services/comments.dart';
 import 'package:gulfgoal/services/favAPI.dart';
 import 'package:gulfgoal/services/footballapi.dart';
+import 'package:gulfgoal/services/trendAPI.dart';
 import 'package:intl/intl.dart';
 
 class Userprovider extends ChangeNotifier {
@@ -15,6 +17,7 @@ class Userprovider extends ChangeNotifier {
   List<News> allnews = List<News>();
   List<News> alltrends = List<News>();
   bool issigningup = false;
+  StreamController newscommentsController;
   StreamController allgamesuserController;
   StreamController livegamesuserController;
   StreamController favgamesuserController;
@@ -119,7 +122,7 @@ class Userprovider extends ChangeNotifier {
     SoccerApi()
         .getAllMatches(leagueid[leaugeindex], formatter.format(selectedDate))
         .then((res) async {
-      print('LoadDetails of ${res.length}');
+      print("Allgamesdetails updated from provider");
       allgamesuserController.add(res);
       notifyListeners();
       return res;
@@ -129,10 +132,10 @@ class Userprovider extends ChangeNotifier {
   loadlivegamesdetailsDetails() async {
     livegamesuserController = new StreamController();
     FavouriteAPI().getFavLiveMatches(token).then((res) async {
-      print("from provider $res");
+      print("livegames updated from provider");
       livegamesuserController.add(res);
       notifyListeners();
-      return res;
+      // return res;
     });
   }
 
@@ -141,10 +144,20 @@ class Userprovider extends ChangeNotifier {
     FavouriteAPI()
         .getFavMatches(token, formatter.format(selectedDate))
         .then((res) async {
-      print("from provider $res");
+      print("favgames updated from provider");
       favgamesuserController.add(res);
       notifyListeners();
       return res;
+    });
+  }
+
+  loadcomments(String newsid) async {
+    newscommentsController = new StreamController();
+    CommentApi().getcomments(newsid).then((res) async {
+      print("loadcomments updated from provider");
+      newscommentsController.add(res);
+      notifyListeners();
+      // return res;
     });
   }
 }

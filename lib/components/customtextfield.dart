@@ -24,7 +24,7 @@ class CustomTextfield extends StatelessWidget {
   final Widget suffix;
   final IconData priffix;
   final TextEditingController controller;
-  final bool isobscure;
+  final bool isobscure, borderd;
   final int validator;
   final Function customvalidator;
 
@@ -32,12 +32,13 @@ class CustomTextfield extends StatelessWidget {
       {Key key,
       this.hint,
       this.label,
-      this.priffix,
-      this.suffix,
+      this.priffix = null,
+      this.suffix = null,
       this.controller,
       this.isobscure = false,
       this.validator = null,
-      this.customvalidator = null})
+      this.customvalidator = null,
+      this.borderd = true})
       : super(key: key);
 
   @override
@@ -46,10 +47,14 @@ class CustomTextfield extends StatelessWidget {
         controller: controller,
         obscureText: isobscure,
         decoration: new InputDecoration(
-            focusedBorder: OutlineInputBorder(
-                borderSide: new BorderSide(color: accentcolor)),
-            border: new OutlineInputBorder(
-                borderSide: new BorderSide(color: accentcolor)),
+            focusedBorder: borderd == true
+                ? OutlineInputBorder(
+                    borderSide: new BorderSide(color: accentcolor))
+                : null,
+            border: borderd == true
+                ? OutlineInputBorder(
+                    borderSide: new BorderSide(color: accentcolor))
+                : null,
             hintText: hint,
             labelText: label,
             labelStyle: TextStyle(

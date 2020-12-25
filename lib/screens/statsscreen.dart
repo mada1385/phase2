@@ -13,10 +13,13 @@ class Statsscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stats(match: match),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(right: 20, left: 20, top: 20),
+      child: Column(
+        children: [
+          Stats(match: match),
+        ],
+      ),
     );
   }
 }

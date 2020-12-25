@@ -100,65 +100,7 @@ class _HomenewsscreenState extends State<Homenewsscreen> {
                       },
                     ),
 
-                    StreamBuilder(
-                      stream: Provider.of<Userprovider>(context)
-                          .livegamesuserController
-                          .stream,
-                      //Here we will call our getData() method,
-                      builder: (context, snapshot) {
-                        //the future builder is very intersting to use when you work with api
-                        if (snapshot.hasData) {
-                          if (snapshot.data["success"] == true) {
-                            List<dynamic> matchesList = snapshot.data["result"];
-                            print("Api service: ${snapshot.data}"); // to debug
-                            List<SoccerMatch> matches = matchesList
-                                .map((dynamic item) =>
-                                    SoccerMatch.fromJson(item))
-                                .toList();
-                            return Column(
-                              children: [
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Boldaccectcolor(
-                                        text: "Your Team",
-                                        size: 16,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Livematchesscoreboard(
-                                  livematches: matches,
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                )
-                              ],
-                            );
-                          } else {
-                            return Container(
-                              height: 1,
-                            );
-                          }
-                        } else {
-                          return Center(
-                              child: Theme(
-                            data: Theme.of(context)
-                                .copyWith(accentColor: accentcolor),
-                            child: new CircularProgressIndicator(
-                              backgroundColor: Colors.black26,
-                            ),
-                          ));
-                        }
-                      }, // here we will buil the app layout
-                    ),
+                    Livematchstream(),
                     Container(
                       color: Colors.transparent,
                       child: Padding(
@@ -206,6 +148,71 @@ class _HomenewsscreenState extends State<Homenewsscreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Livematchstream extends StatelessWidget {
+  const Livematchstream({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: Provider.of<Userprovider>(context).livegamesuserController.stream,
+      //Here we will call our getData() method,
+      builder: (context, snapshot) {
+        //the future builder is very intersting to use when you work with api
+        if (snapshot.hasData) {
+          if (snapshot.data["success"] == true) {
+            List<dynamic> matchesList = snapshot.data["result"];
+            print("Api service: ${snapshot.data}"); // to debug
+            List<SoccerMatch> matches = matchesList
+                .map((dynamic item) => SoccerMatch.fromJson(item))
+                .toList();
+            return Column(
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Boldaccectcolor(
+                        text: "Your Team",
+                        size: 16,
+                      ),
+                    ],
+                  ),
+                ),
+                Livematchesscoreboard(
+                  livematches: matches,
+                ),
+                SizedBox(
+                  height: 5,
+                )
+              ],
+            );
+          } else {
+            return Container(
+              height: 1,
+            );
+          }
+        } else {
+          return Center(
+              child: Theme(
+            data: Theme.of(context).copyWith(accentColor: accentcolor),
+            child: new CircularProgressIndicator(
+              backgroundColor: Colors.black26,
+            ),
+          ));
+        }
+      }, // here we will buil the app layout
     );
   }
 }

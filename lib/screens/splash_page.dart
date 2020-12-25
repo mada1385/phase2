@@ -1,11 +1,7 @@
-import 'dart:async';
-
-import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
 import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/screens/homescreen.dart';
-import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
