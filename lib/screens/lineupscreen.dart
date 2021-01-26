@@ -2,7 +2,7 @@ import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
-import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 
@@ -98,7 +98,7 @@ class _LineupscreenState extends State<Lineupscreen> {
             Center(
               child: Normaltext(
                 string:
-                    "Formation : ${buttonindex == 0 ? widget.match.lineup.formationhome : widget.match.lineup.formationaway}",
+                    "${AppLocalizations.of(context).formation} : ${buttonindex == 0 ? widget.match.lineup.formationhome : widget.match.lineup.formationaway}",
                 color: textcolor2,
                 fontsize: 14,
                 fontWeight: FontWeight.bold,
@@ -126,17 +126,21 @@ class _LineupscreenState extends State<Lineupscreen> {
                             child: Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Normaltext(
-                                    string: "${e["lineup_number"]} - ",
-                                    color: textcolor2,
-                                    fontsize: 14,
-                                    fontWeight: FontWeight.w600,
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 0),
+                                  child: Container(
+                                    width: 50,
+                                    child: Normaltext(
+                                      string: "${e["lineup_number"]} - ",
+                                      color: textcolor2,
+                                      fontsize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
 
                                 Normaltext(
+                                  padding: 0,
                                   string: e["lineup_player"],
                                   color: textcolor,
                                   fontsize: 14,

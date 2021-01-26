@@ -6,6 +6,7 @@ import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/teams.dart';
 import 'package:gulfgoal/screens/countrylistscreen.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
@@ -67,8 +68,13 @@ class _FavoutitesscreenState extends State<Favoutitesscreen> {
                                 controller: controller,
                                 decoration: new InputDecoration(
                                     hintStyle: TextStyle(
-                                        fontFamily: 'poppins', fontSize: 12),
-                                    hintText: 'Search',
+                                        fontFamily: Provider.of<Userprovider>(
+                                                context,
+                                                listen: false)
+                                            .font(context),
+                                        fontSize: 12),
+                                    hintText:
+                                        AppLocalizations.of(context).search,
                                     border: InputBorder.none),
                               ),
                               trailing: new IconButton(
@@ -97,7 +103,7 @@ class _FavoutitesscreenState extends State<Favoutitesscreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Boldaccectcolor(
-                            text: "Favourite Clubs",
+                            text: AppLocalizations.of(context).favouriteClubs,
                             size: 16,
                           ),
                           IconButton(

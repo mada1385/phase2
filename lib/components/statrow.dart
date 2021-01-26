@@ -13,11 +13,12 @@ class Statrow extends StatelessWidget {
   final dynamic match;
 
   double indicator() {
-    double percent =
-        int.parse(match["home"].replaceAll(RegExp('%'), '')).toDouble() /
-            (int.parse(match["home"].replaceAll(RegExp('%'), '')).toDouble() +
-                    int.parse(match["away"].replaceAll(RegExp('%'), '')))
-                .toDouble();
+    double home =
+        int.parse(match["home"].replaceAll(RegExp('%'), '')).toDouble();
+    double total =
+        (int.parse(match["home"].replaceAll(RegExp('%'), '')).toDouble() +
+            int.parse(match["away"].replaceAll(RegExp('%'), '')).toDouble());
+    double percent = total == 0 ? home : home / total;
     return percent;
   }
 
@@ -31,7 +32,7 @@ class Statrow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width - 100,
+              width: MediaQuery.of(context).size.width - 60,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -62,7 +63,7 @@ class Statrow extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: new LinearPercentIndicator(
-                    width: MediaQuery.of(context).size.width - 100,
+                    width: MediaQuery.of(context).size.width - 60,
                     animation: true,
                     lineHeight: 10.0,
                     animationDuration: 2500,

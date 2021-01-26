@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gulfgoal/components/goalscorerlist.dart';
-import 'package:gulfgoal/components/cardslist.dart';
 import 'package:gulfgoal/components/statslist.dart';
 
 import 'package:gulfgoal/models/match.dart';

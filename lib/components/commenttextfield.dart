@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:gulfgoal/config/colors.dart';
+import 'package:gulfgoal/config/provider.dart';
+import 'package:provider/provider.dart';
 
 class CommentCustomTextfield extends StatelessWidget {
   final String hint;
@@ -26,12 +28,14 @@ class CommentCustomTextfield extends StatelessWidget {
             hintText: hint,
             labelStyle: TextStyle(
               color: textcolor,
-              fontFamily: 'cairo',
+              fontFamily: Provider.of<Userprovider>(context, listen: false)
+                  .font(context),
             ),
             prefixText: ' ',
-            suffixStyle: const TextStyle(
+            suffixStyle: TextStyle(
               color: accentcolor,
-              fontFamily: 'cairo',
+              fontFamily: Provider.of<Userprovider>(context, listen: false)
+                  .font(context),
             )),
         validator: RequiredValidator(errorText: 'the comment cant be empty'));
   }

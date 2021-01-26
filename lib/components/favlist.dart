@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/teams.dart';
 import 'package:gulfgoal/services/favAPI.dart';
 import 'package:provider/provider.dart';
@@ -66,7 +67,7 @@ class _FavlistState extends State<Favlist> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Normaltext(
-                                string: "successful",
+                                string: AppLocalizations.of(context).successful,
                                 color: Colors.white,
                                 fontsize: 15,
                                 fontWeight: FontWeight.w600,

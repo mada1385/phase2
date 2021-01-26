@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:gulfgoal/config/colors.dart';
+import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
+import 'package:provider/provider.dart';
 
 class CustomTextfield extends StatelessWidget {
-  List<MultiValidator> validators = [
-    MultiValidator([
-      RequiredValidator(errorText: ''),
-    ]),
-    MultiValidator([
-      RequiredValidator(errorText: 'اسم المستخدم مطلوب'),
-      EmailValidator(errorText: "هذا البريد غير صالح")
-    ]),
-    MultiValidator([
-      RequiredValidator(errorText: 'كلمة المرور مطلوبة'),
-      MinLengthValidator(8,
-          errorText: 'يجب أن تتكون كلمة المرور من 8 أرقام على الأقل'),
-      PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-          errorText: 'يجب تحتوي كلمة المرور على حرف خاص واحد على الاقل'),
-    ]),
-  ];
-
   final String hint, label;
   final Widget suffix;
   final IconData priffix;
@@ -43,6 +29,24 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<MultiValidator> validators = [
+      MultiValidator([
+        RequiredValidator(
+            errorText: AppLocalizations.of(context).thisfieldisrequired),
+      ]),
+      MultiValidator([
+        RequiredValidator(
+            errorText: AppLocalizations.of(context).thisfieldisrequired),
+        EmailValidator(errorText: AppLocalizations.of(context).emailisnotvalid)
+      ]),
+      MultiValidator([
+        RequiredValidator(
+            errorText: AppLocalizations.of(context).thisfieldisrequired),
+        MinLengthValidator(8, errorText: ''),
+        PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+            errorText: AppLocalizations.of(context).mailnotvalid),
+      ]),
+    ];
     return TextFormField(
         controller: controller,
         obscureText: isobscure,
@@ -59,7 +63,8 @@ class CustomTextfield extends StatelessWidget {
             labelText: label,
             labelStyle: TextStyle(
               color: textcolor,
-              fontFamily: 'cairo',
+              fontFamily: Provider.of<Userprovider>(context, listen: false)
+                  .font(context),
             ),
             prefixIcon: Icon(
               priffix,
@@ -67,9 +72,10 @@ class CustomTextfield extends StatelessWidget {
             ),
             prefixText: ' ',
             suffix: suffix,
-            suffixStyle: const TextStyle(
+            suffixStyle: TextStyle(
               color: accentcolor,
-              fontFamily: 'cairo',
+              fontFamily: Provider.of<Userprovider>(context, listen: false)
+                  .font(context),
             )),
         validator: validators[validator]);
   }

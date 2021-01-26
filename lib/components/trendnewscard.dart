@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image/network.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
 import 'package:gulfgoal/models/news.dart';
+import 'package:gulfgoal/components/newscarddetails.dart';
 
 class TrendNewscard extends StatelessWidget {
   final News news;
@@ -16,7 +18,6 @@ class TrendNewscard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Container(
-          width: 305,
           height: 136,
           margin: EdgeInsets.symmetric(horizontal: 5.0),
           decoration: BoxDecoration(
@@ -33,16 +34,23 @@ class TrendNewscard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0)),
-                  child: Image(
-                      image: new NetworkImageWithRetry(
-                        news.image,
-                      ),
-                      fit: BoxFit.cover,
-                      height: 136,
-                      width: double.infinity)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0)),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new NetworkImageWithRetry(
+                          news.image,
+                        ),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.topCenter),
+                  ),
+                  child: Newscarddetails(news: news),
+                ),
+              ),
               SizedBox(
                 height: 10,
               ),

@@ -3,12 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gulfgoal/config/colors.dart';
+import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/screens/favouritesscreen.dart';
 import 'package:gulfgoal/screens/gamescreen.dart';
 import 'package:gulfgoal/screens/homenewsscrren.dart';
 import 'package:gulfgoal/screens/newsscreen.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:gulfgoal/screens/profileoptions.dart';
+import 'package:provider/provider.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -16,7 +19,6 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int _selectedIndex = 0;
   List widgetOptions = <Widget>[
     Homenewsscreen(),
     Gamescreen(),
@@ -26,7 +28,8 @@ class _HomescreenState extends State<Homescreen> {
   ];
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      Provider.of<Userprovider>(context, listen: false)
+          .sethomecreenindex(index);
     });
   }
 
@@ -38,43 +41,45 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    int _selectedIndex = Provider.of<Userprovider>(context).homescreenindex;
+
     return ConnectivityWidgetWrapper(
       offlineWidget: Nointernetscreen(),
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
           selectedIconTheme: IconThemeData(color: accentcolor),
-          selectedLabelStyle:
-              TextStyle(color: accentcolor, fontFamily: 'cairo'),
+          selectedLabelStyle: TextStyle(
+              color: accentcolor,
+              fontFamily: Provider.of<Userprovider>(context, listen: false)
+                  .font(context)),
           unselectedItemColor: textcolor,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
               icon: Icon(
                 Icons.home,
               ),
-              title: Text('Home'),
+              label: AppLocalizations.of(context).home.toString(),
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
               icon: Icon(Icons.sports_soccer),
-              title: Text('Games'),
+              label: AppLocalizations.of(context).games.toString(),
             ),
             BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Icon(FontAwesomeIcons.newspaper),
-              title: Text('News'),
-            ),
+                backgroundColor: Colors.white,
+                icon: Icon(FontAwesomeIcons.newspaper),
+                label: AppLocalizations.of(context).news.toString()),
             BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Icon(Icons.star),
-              title: Text('Favourites'),
-            ),
+                backgroundColor: Colors.white,
+                icon: Icon(Icons.star),
+                label: AppLocalizations.of(context).favourites.toString()),
             BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Icon(Icons.person),
-              title: Text('Profie'),
-            ),
+                backgroundColor: Colors.white,
+                icon: Icon(Icons.person),
+                label: AppLocalizations.of(context).profile.toString()),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: accentcolor,

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/teamcard.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:gulfgoal/screens/matchdetailsscreen.dart';
+import 'package:provider/provider.dart';
 
 class Livematchcard extends StatelessWidget {
   const Livematchcard({
@@ -16,12 +18,8 @@ class Livematchcard extends StatelessWidget {
     SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => MatchDetailsScreen(
-                      match: i,
-                    )));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MatchDetailsScreen()));
       },
       child: Card(
         elevation: 10,
@@ -42,7 +40,9 @@ class Livematchcard extends StatelessWidget {
                     Text(
                       i.fixture.status.league,
                       style: TextStyle(
-                          fontFamily: 'cairo',
+                          fontFamily:
+                              Provider.of<Userprovider>(context, listen: false)
+                                  .font(context),
                           fontWeight: FontWeight.w600,
                           color: Colors.grey,
                           fontSize: SizeConfig.blockSizeVertical * 1.5),

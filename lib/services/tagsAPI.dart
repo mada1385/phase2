@@ -6,8 +6,8 @@ import 'package:http/http.dart';
 class Tagsapi {
   Future<List<Tags>> getAlltags() async {
     try {
-      Response res =
-          await get("https://gulf-goal.herokuapp.com/api/tags/all-tags");
+      Response res = await get(
+          "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/tags/all-tags");
       print(res.statusCode);
       var body;
       print("Api service: ${res.body}");

@@ -1,14 +1,18 @@
 // import 'package:email_validator/email_validator.dart';
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gulfgoal/components/customtextfield.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/user.dart';
 import 'package:gulfgoal/screens/forgetpasswordscreen.dart';
 import 'package:gulfgoal/screens/homescreen.dart';
+import 'package:gulfgoal/screens/aftersignupscreen.dart';
+
 import 'package:gulfgoal/screens/signupscreen.dart';
 import 'package:gulfgoal/services/authAPI.dart';
 
@@ -61,7 +65,7 @@ class _SigninscreenState extends State<Signinscreen> {
                           children: [
                             Boldaccectcolor(
                                 size: 16,
-                                text: "Let's resume where you left off!"),
+                                text: AppLocalizations.of(context).letsresume),
                           ],
                         ),
                       ),
@@ -74,7 +78,8 @@ class _SigninscreenState extends State<Signinscreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Contenttext(
-                              data: "Login to continue",
+                              data:
+                                  AppLocalizations.of(context).logintocontinue,
                               size: 14,
                             ),
                           ],
@@ -99,9 +104,9 @@ class _SigninscreenState extends State<Signinscreen> {
                             horizontal: 20, vertical: 5),
                         child: CustomTextfield(
                             controller: mailcontroller,
-                            hint: "Write your Email",
+                            hint: AppLocalizations.of(context).writeyourEmail,
                             isobscure: false,
-                            label: "Email",
+                            label: AppLocalizations.of(context).email,
                             priffix: Icons.mail_outline,
                             validator: 1),
                       ),
@@ -121,9 +126,9 @@ class _SigninscreenState extends State<Signinscreen> {
                             ),
                           ),
                           controller: passwordcontroller,
-                          hint: "Write your password",
+                          hint: AppLocalizations.of(context).writeyourpassword,
                           isobscure: isobsecurepass,
-                          label: "Password",
+                          label: AppLocalizations.of(context).password,
                           priffix: Icons.lock_outline,
                           validator: 0,
                         ),
@@ -136,7 +141,9 @@ class _SigninscreenState extends State<Signinscreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Contenttext(
-                                  data: "Forget your password ? ", size: 10),
+                                  data: AppLocalizations.of(context)
+                                      .forgetpassword,
+                                  size: 10),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -146,7 +153,7 @@ class _SigninscreenState extends State<Signinscreen> {
                                               Forgetpasswordscreen()));
                                 },
                                 child: Boldaccectcolor(
-                                  text: "Click here",
+                                  text: AppLocalizations.of(context).clickhere,
                                   size: 10,
                                 ),
                               )
@@ -173,7 +180,9 @@ class _SigninscreenState extends State<Signinscreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Contenttext(
-                                data: "Don't have an account ? ", size: 12),
+                                data: AppLocalizations.of(context)
+                                    .donthaveanaccount,
+                                size: 12),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -182,7 +191,8 @@ class _SigninscreenState extends State<Signinscreen> {
                                         builder: (context) => Signupscreen()));
                               },
                               child: Boldaccectcolor(
-                                text: "Create an account",
+                                text: AppLocalizations.of(context)
+                                    .createanaccount,
                                 size: 12,
                               ),
                             )
@@ -192,55 +202,40 @@ class _SigninscreenState extends State<Signinscreen> {
                       SizedBox(
                         height: 25,
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     Text(
-                      //       "او سجل دخول بواسطة : ",
-                      //       style: TextStyle(
-                      //           color: textcolor,
-                      //           fontSize: 20,
-                      //           fontWeight: FontWeight.bold),
-                      //     ),
-                      //   ],
-                      // ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     GestureDetector(
-                      //       onTap: () {
-                      //         Authapi().signOutGoogle();
-                      //       },
-                      //       child: Image.asset(
-                      //         "asset/facebook.png",
-                      //         width: 40,
-                      //         height: 40,
-                      //       ),
-                      //     ),
-                      //     SizedBox(
-                      //       width: 20,
-                      //     ),
-                      //     GestureDetector(
-                      //       onTap: () async {
-                      //         final user = await Authapi().handleSignIn(context);
-                      //         if (user.uid != null) {
-                      //           Navigator.pushReplacement(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (context) => Homescreen()));
-                      //         }
-                      //       },
-                      //       child: Image.asset(
-                      //         "asset/Google.png",
-                      //         width: 40,
-                      //         height: 40,
-                      //       ),
-                      //     )
-                      //   ],
-                      // ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Normaltext(
+                            string: "Or sign in with :",
+                            color: textcolor,
+                            fontsize: 14,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // GestureDetector(
+                          //   onTap: () async {
+                          //     await Firebase.initializeApp();
+
+                          //     await Authapi().signOutGoogle();
+                          //   },
+                          //   child: Image.asset(
+                          //     "asset/facebook.png",
+                          //     width: 40,
+                          //     height: 40,
+                          //   ),
+                          // ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Signinwithgoogle()
+                        ],
+                      ),
                     ],
                   ),
                 )
@@ -248,6 +243,57 @@ class _SigninscreenState extends State<Signinscreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Signinwithgoogle extends StatelessWidget {
+  const Signinwithgoogle({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        await Firebase.initializeApp();
+        final user = await Authapi().handleSignIn(context);
+        if (user['success']) {
+          if (user['first_time']) {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => Aftersignupscreen()));
+          } else {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Homescreen()));
+          }
+        } else {
+          HapticFeedback.mediumImpact();
+          Future.delayed(Duration(milliseconds: 30), () {
+            // 5s over, navigate to a new page
+            HapticFeedback.mediumImpact();
+          });
+
+          Scaffold.of(context).showSnackBar(SnackBar(
+              elevation: 10,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              backgroundColor: accentcolor,
+              content: Container(
+                  child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Normaltext(
+                  string: "something went wrong",
+                  color: Colors.white,
+                  fontsize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ))));
+        }
+      },
+      child: Image.asset(
+        "asset/Google.png",
+        width: 30,
+        height: 30,
       ),
     );
   }
@@ -341,7 +387,7 @@ class Snackbutton extends StatelessWidget {
         }
       },
       child: Normaltext(
-        string: 'Login',
+        string: AppLocalizations.of(context).login,
         color: Colors.white,
         fontsize: 16,
       ),

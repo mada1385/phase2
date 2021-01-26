@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:gulfgoal/components/matchtile.dart';
+import 'package:gulfgoal/screens/matchdetailsscreen.dart';
+import 'package:provider/provider.dart';
 
 class Fixturelist extends StatefulWidget {
   final List<SoccerMatch> allmatches;
@@ -13,8 +16,11 @@ class Fixturelist extends StatefulWidget {
 
 class _FixturelistState extends State<Fixturelist> {
   int matchindex = 0;
+  SoccerMatch x;
   @override
   Widget build(BuildContext context) {
+    Provider.of<Userprovider>(context, listen: false)
+        .setmatchdetails(widget.allmatches);
     return Expanded(
       child: Container(
         width: double.infinity,
@@ -38,12 +44,19 @@ class _FixturelistState extends State<Fixturelist> {
                   return GestureDetector(
                       onTap: () {
                         setState(() {
-                          matchindex = index;
+                          x = widget.allmatches[index];
                         });
+
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MatchDetailsScreen(
+                                      x: index,
+                                    )));
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: matchTile(widget.allmatches[index], context),
+                        child: Matchtile(match: widget.allmatches[index]),
                       ));
                 },
               ),

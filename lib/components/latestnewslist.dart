@@ -57,6 +57,14 @@ class _LatestnewslistState extends State<Latestnewslist> {
   }
 
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<Userprovider>(context, listen: false).setallnews(widget.news);
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: sorteddata().map((i) {
@@ -67,7 +75,7 @@ class _LatestnewslistState extends State<Latestnewslist> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Newsdetails(
+                        builder: (context) => new Newsdetails(
                               news: i,
                               relatednews: relateddata(i),
                             )));

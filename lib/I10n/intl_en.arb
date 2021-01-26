@@ -1,0 +1,380 @@
+{
+  "@@last_modified": "2020-12-27T19:30:23.602096",
+  "@@locale": "en",
+
+  "contactus": "Contact us",
+  "@contactus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gethelp": "Get help and support or get in touch",
+  "@gethelp": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "socialMedia": "Social Media",
+  "@socialMedia": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "Search",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "choosefavcountry": "Choose your favourite country",
+  "@choosefavcountry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectfavcountry": "select your country",
+  "@selectfavcountry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "nomatchestoday": "No matches today!",
+  "@nomatchestoday": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favouriteClubs": "Favourite Clubs",
+  "@favouriteClubs": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetpassword": "Forget password",
+  "@forgetpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendemail": "We will send your password to your email",
+  "@sendemail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourEmail": "Write your Email",
+  "@writeyourEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "Email",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendpassword": "Send password",
+  "@sendpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "yourTeam": "Your Team",
+  "@yourTeam": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "latestNews": "Latest News",
+  "@latestNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "Home",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "games": "Games",
+  "@games": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "news": "News",
+  "@news": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favourites": "Favourites",
+  "@favourites": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profile": "Profile",
+  "@profile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favouriteleague": "Choose your favourite league",
+  "@favouriteleague": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectleague": "select your league",
+  "@selectleague": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "fixtures": "Fixtures",
+  "@fixtures": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "table": "Table",
+  "@table": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "formation": "Formation",
+  "@formation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "nocommentsye": "No comments yet !",
+  "@nocommentsye": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "youmustregister": "You must register first",
+  "@youmustregister": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "likes": "likes",
+  "@likes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reply": "Reply",
+  "@reply": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "stats": "Stats",
+  "@stats": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "facts": "Facts",
+  "@facts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lineup": "Line up",
+  "@lineup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "chat": "Chat",
+  "@chat": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "relatedNews": "Related News",
+  "@relatedNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "trendingNews": "Trending News",
+  "@trendingNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pushNotifications": "Push Notifications",
+  "@pushNotifications": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "companyprofile": "Company profile",
+  "@companyprofile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "termsofServices": "Terms of Services",
+  "@termsofServices": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacypolicy": "Privacy policy",
+  "@privacypolicy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shareGulfGoal": "Share Gulf Goal",
+  "@shareGulfGoal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "letsresume": "Let's resume where you left off!",
+  "@letsresume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logintocontinue": "Login to continue\"",
+  "@logintocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourpassword": "Write your password",
+  "@writeyourpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "Password",
+  "@password": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetypurpassword": "Forget your password ?",
+  "@forgetypurpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clickhere": "Click here",
+  "@clickhere": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "donthaveanaccount": "Don't have an account ?",
+  "@donthaveanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createanaccount": "Create an account",
+  "@createanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "letsgetstarted": "lets get started",
+  "@letsgetstarted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createanaccounttocontinue": "Create an account to continue",
+  "@createanaccounttocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourusername": "Write your username",
+  "@writeyourusername": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "username": "Username",
+  "@username": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmyourpassword": "Confirm your password",
+  "@confirmyourpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmpassword": "confirmpassword",
+  "@confirmpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordsdonotmatch": "passwords do not match",
+  "@passwordsdonotmatch": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "bycreatinganaccountyouagreetoour": "By creating an account you agree to our T&C",
+  "@bycreatinganaccountyouagreetoour": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "alreadyhaveanaccount": "Already have an account ?",
+  "@alreadyhaveanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createAccount": "Create Account",
+  "@createAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "chooseyourfavouriteteams": "Choose your favourite teams",
+  "@chooseyourfavouriteteams": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectyourteams": "select your teams",
+  "@selectyourteams": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "successful": "successful",
+  "@successful": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "somethingwentwrong": "something went wrong",
+  "@somethingwentwrong": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addacomment": " add a comment",
+  "@addacomment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addareply": "add a reply",
+  "@addareply": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "signin": "Sign in",
+  "@signin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "signup": "Sign up",
+  "@signup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleasesignintocontinue": "Please sign in to continue",
+  "@pleasesignintocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "allcategories": "All categories",
+  "@allcategories": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "favourite": "★  Favourite",
+  "@favourite": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "allgames": "All games",
+  "@allgames": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "emailisnotvalid": "email is not valid",
+  "@emailisnotvalid": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "thisfieldisrequired": "this field is required",
+  "@thisfieldisrequired": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passeordcontain": "Password must contain at least 8 digits",
+  "@passeordcontain": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mailnotvalid": "Password must contain at least one special character",
+  "@mailnotvalid": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

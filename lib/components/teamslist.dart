@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
@@ -28,8 +29,8 @@ class Teamslist extends StatelessWidget {
                     offset: Offset(0, .75))
               ]),
               child: ListTile(
-                leading: Image.network(
-                  teams[index].teambadge,
+                leading: Image(
+                  image: NetworkImageWithRetry(teams[index].teambadge),
                   height: 30,
                   width: 30,
                 ),

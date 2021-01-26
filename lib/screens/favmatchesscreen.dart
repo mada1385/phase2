@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/fixturelist.dart';
 import 'package:gulfgoal/components/signinchecker.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -38,10 +38,10 @@ class _FavouritematchesscreenState extends State<Favouritematchesscreen> {
   }
 
   void dispose() {
-    // TODO: implement dispose
+    _clockTimer.cancel();
     super.dispose();
     // _userController.close();
-    _clockTimer.cancel();
+    // _clockTimer.cancel();
   }
 
   @override
@@ -71,7 +71,7 @@ class _FavouritematchesscreenState extends State<Favouritematchesscreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "No matches today!",
+                          AppLocalizations.of(context).nomatchestoday,
                           style: TextStyle(
                               fontFamily: 'cairo',
                               fontSize: 20,

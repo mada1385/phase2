@@ -1,44 +1,50 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:gulfgoal/components/matchtile.dart';
 import 'package:gulfgoal/components/teamcard.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:gulfgoal/screens/lineupscreen.dart';
 import 'package:gulfgoal/screens/matchfactsscreen.dart';
 import 'package:gulfgoal/screens/statsscreen.dart';
 import 'package:gulfgoal/screens/matchchatsceen.dart';
-
+import 'package:provider/provider.dart';
 import 'nointernetscreen.dart';
 
 class MatchDetailsScreen extends StatefulWidget {
-  final SoccerMatch match;
+  final int x;
 
-  const MatchDetailsScreen({Key key, this.match}) : super(key: key);
+  const MatchDetailsScreen({Key key, this.x}) : super(key: key);
   @override
   _MatchDetailsScreenState createState() => _MatchDetailsScreenState();
 }
 
 class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
   int tapindex = 0;
-
+  SoccerMatch match;
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      match = Provider.of<Userprovider>(context).match[widget.x];
+    });
     SizeConfig().init(context);
     List<Widget> detailscreen = [
       Statsscreen(
-        match: widget.match,
+        match: match,
       ),
       Lineupscreen(
-        match: widget.match,
+        match: match,
       ),
       Matchfactsscreen(
-        match: widget.match,
+        match: match,
       ),
-      Matchchatscreen()
+      Matchchatscreen(
+        matchid: match.fixture.id,
+      )
     ];
     return ConnectivityWidgetWrapper(
       offlineWidget: Nointernetscreen(),
@@ -67,12 +73,12 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10))),
-                  height: 177,
+                  height: 190,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        height: 20,
+                        height: 30,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -88,7 +94,7 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                         ),
                       ),
                       Normaltext(
-                        string: widget.match.fixture.status.league,
+                        string: match.fixture.status.league,
                         fontWeight: FontWeight.w400,
                         color: Colors.grey,
                         fontsize: 12,
@@ -100,31 +106,31 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                           children: [
                             Expanded(
                               child: Teamcard(
-                                logourl: widget.match.home.logoUrl,
-                                teamname: widget.match.home.name,
+                                logourl: match.home.logoUrl,
+                                teamname: match.home.name,
                               ),
                             ),
                             Expanded(
                               child: CenterNormaltext(
                                   string:
-                                      "${widget.match.goal.home} : ${widget.match.goal.away}",
+                                      "${match.goal.home} : ${match.goal.away}",
                                   fontWeight: FontWeight.bold,
                                   color: accentcolor,
                                   fontsize: 26),
                             ),
                             Expanded(
                               child: Teamcard(
-                                logourl: widget.match.away.logoUrl,
-                                teamname: widget.match.away.name,
+                                logourl: match.away.logoUrl,
+                                teamname: match.away.name,
                               ),
                             ),
                           ],
                         ),
                       ),
                       Normaltext(
-                        string: widget.match.fixture.status.status == ""
-                            ? widget.match.fixture.time
-                            : widget.match.fixture.status.status,
+                        string: match.fixture.status.status == ""
+                            ? match.fixture.time
+                            : match.fixture.status.status,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey,
                         fontsize: 14,
@@ -147,7 +153,7 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                                               : Colors.transparent,
                                           width: 4))),
                               child: Normaltext(
-                                string: "Stats",
+                                string: AppLocalizations.of(context).stats,
                                 fontWeight: FontWeight.w600,
                                 color:
                                     tapindex == 0 ? accentcolor : Colors.grey,
@@ -170,7 +176,7 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                                                 : Colors.transparent,
                                             width: 4))),
                                 child: Normaltext(
-                                  string: "Facts",
+                                  string: AppLocalizations.of(context).facts,
                                   fontWeight: FontWeight.w600,
                                   color:
                                       tapindex == 2 ? accentcolor : Colors.grey,
@@ -192,7 +198,7 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                                                 : Colors.transparent,
                                             width: 4))),
                                 child: Normaltext(
-                                  string: "Line up",
+                                  string: AppLocalizations.of(context).lineup,
                                   fontWeight: FontWeight.w600,
                                   color:
                                       tapindex == 1 ? accentcolor : Colors.grey,
@@ -214,7 +220,7 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                                               : Colors.transparent,
                                           width: 4))),
                               child: Normaltext(
-                                string: "Chat",
+                                string: AppLocalizations.of(context).chat,
                                 fontWeight: FontWeight.w600,
                                 color:
                                     tapindex == 3 ? accentcolor : Colors.grey,

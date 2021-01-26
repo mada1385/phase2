@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/fixturelist.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/match.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,8 @@ class _AllgameslistState extends State<Allgameslist> {
 
   @override
   void initState() {
+    Provider.of<Userprovider>(context, listen: false)
+        .loadAllgamesdetailsDetails();
     _clockTimer = Timer.periodic(Duration(seconds: 20), (_) => isstrem());
     super.initState();
   }
@@ -63,9 +66,11 @@ class _AllgameslistState extends State<Allgameslist> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "No matches today!",
+                    AppLocalizations.of(context).nomatchestoday,
                     style: TextStyle(
-                        fontFamily: 'cairo',
+                        fontFamily:
+                            Provider.of<Userprovider>(context, listen: false)
+                                .font(context),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: accentcolor),

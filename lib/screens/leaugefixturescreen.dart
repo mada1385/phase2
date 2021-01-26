@@ -5,6 +5,7 @@ import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:gulfgoal/screens/standingsscreen.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,10 @@ class Leaguesfixturescreen extends StatefulWidget {
 
 class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
   int leaguetab = 0;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +55,9 @@ class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
                                   onPressed: () {
                                     setState(() {
                                       leaguetab = 0;
-                                      Provider.of<Userprovider>(context,
-                                              listen: false)
-                                          .loadAllgamesdetailsDetails();
+                                      // Provider.of<Userprovider>(context,
+                                      //         listen: false)
+                                      //     .loadAllgamesdetailsDetails();
                                     });
                                   },
                                   child: Column(
@@ -67,7 +72,8 @@ class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
                                           width: 2,
                                         ))),
                                         child: Normaltext(
-                                          string: "Fixtures",
+                                          string: AppLocalizations.of(context)
+                                              .fixtures,
                                           fontsize: 16,
                                           color: leaguetab == 0
                                               ? accentcolor
@@ -103,7 +109,8 @@ class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
                                           width: 2,
                                         ))),
                                         child: Normaltext(
-                                          string: "Table",
+                                          string: AppLocalizations.of(context)
+                                              .table,
                                           fontsize: 16,
                                           color: leaguetab == 1
                                               ? accentcolor

@@ -106,9 +106,7 @@ class _GamescreenState extends State<Gamescreen> {
 
   @override
   void initState() {
-    Provider.of<Userprovider>(context, listen: false)
-        .loadAllgamesdetailsDetails();
-    Provider.of<Userprovider>(context, listen: false).islive();
+    // Provider.of<Userprovider>(context, listen: false).islive();
 
     super.initState();
   }
@@ -160,12 +158,12 @@ class _GamescreenState extends State<Gamescreen> {
               Container(
                 color: Color(0xffFCFCFC),
 
-                height: SizeConfig.blockSizeVertical * 6,
+                height: SizeConfig.blockSizeVertical * 5,
                 //color: Theme.of(context).primaryColor,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount:
-                        Provider.of<Userprovider>(context).leaguestripe.length,
+                        Provider.of<Userprovider>(context).notliveleague.length,
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
                         onTap: () {
@@ -199,7 +197,7 @@ class _GamescreenState extends State<Gamescreen> {
                                 padding: const EdgeInsets.all(3),
                                 child: Normaltext(
                                   string: Provider.of<Userprovider>(context)
-                                      .leaguestripe[index],
+                                      .notliveleague[index],
                                   fontsize: 10,
                                   fontWeight: FontWeight.w500,
                                   color: Provider.of<Userprovider>(context)

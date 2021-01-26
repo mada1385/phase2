@@ -1,0 +1,384 @@
+{
+  "@@last_modified": "2020-12-27T19:30:23.602096",
+  "@@locale": "ar",
+  "title": "Flutter Example App",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "contactus": "اتصل بنا",
+  "@contactus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gethelp": "احصل على المساعدة والدعم أو تواصل معنا",
+  "@gethelp": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "socialMedia": "وسائل التواصل الاجتماعي",
+  "@socialMedia": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "بحث",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "choosefavcountry": "اختر بلدك المفضل",
+  "@choosefavcountry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectfavcountry": "اختر بلدك",
+  "@selectfavcountry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "nomatchestoday": "لا يوجد مباريات اليوم !" ,
+  "@nomatchestoday": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favouriteClubs": "النوادي المفضلة",
+  "@favouriteClubs": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetpassword": "هل نسيت كلمة المرور",
+  "@forgetpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendemail": "سوف نرسل كلمة المرور الخاصة بك إلى بريدك الإلكترونيl",
+  "@sendemail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourEmail": "اكتب بريدك الإلكتروني",
+  "@writeyourEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "البريد الإلكتروني",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sendpassword": "إرسل كلمة المرور",
+  "@sendpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "yourTeam": "فريقك",
+  "@yourTeam": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "latestNews": "أحدث الأخبار",
+  "@latestNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "الرئيسية",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "games": "المباريات",
+  "@games": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "news": "أخبار",
+  "@news": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favourites": "المفضلة",
+  "@favourites": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profile": "الملف الشخصي",
+  "@profile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favouriteleague": "اختر الدوري المفضل لديك",
+  "@favouriteleague": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectleague": "اختر الدوري الخاص بك",
+  "@selectleague": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "fixtures": "المباريات",
+  "@fixtures": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "table": "الترتيب",
+  "@table": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "formation": "التشكيل",
+  "@formation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "nocommentsye": "لا تعليقات حتى الآن !",
+  "@nocommentsye": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "youmustregister": "يجب عليك التسجيل أولا ",
+  "@youmustregister": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "likes": "الإعجابات",
+  "@likes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reply": "الرد",
+  "@reply": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "stats": "احصائيات",
+  "@stats": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "facts": "الاحداث",
+  "@facts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lineup": "التشكيل",
+  "@lineup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "chat": "الدردشة",
+  "@chat": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "relatedNews": "أخبار ذات صلة",
+  "@relatedNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "trendingNews": "اهم الاخبار",
+  "@trendingNews": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pushNotifications": "دفع الإخطارات",
+  "@pushNotifications": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "companyprofile": "عن الشركة",
+  "@companyprofile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "termsofServices": "شروط الخدمة",
+  "@termsofServices": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacypolicy": "سياسة الخصوصية",
+  "@privacypolicy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shareGulfGoal": "شارك Gulf Goal",
+  "@shareGulfGoal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "letsresume": "لنستأنف من حيث توقفت!",
+  "@letsresume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logintocontinue": "تسجيل الدخول للمتابعة",
+  "@logintocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourpassword": "اكتب كلمة المرور الخاصة بك",
+  "@writeyourpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "كلمه السر",
+  "@password": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetypurpassword": "نسيت كلمة المرور ؟",
+  "@forgetypurpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clickhere": "انقر هنا",
+  "@clickhere": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "donthaveanaccount": "ليس لديك حساب؟",
+  "@donthaveanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createanaccount": "انشئ حساب",
+  "@createanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "تسجيل الدخول",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "letsgetstarted": "هيا بنا نبدأ",
+  "@letsgetstarted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createanaccounttocontinue": "إنشاء حساب للمتابعة",
+  "@createanaccounttocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeyourusername": "اكتب اسم المستخدم الخاص بك",
+  "@writeyourusername": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "username": "اسم المستخدم",
+  "@username": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmyourpassword": "أكد رقمك السري",
+  "@confirmyourpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmpassword": "تأكيد كلمة المرور",
+  "@confirmpassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordsdonotmatch": "كلمة المرور غير مطابقة",
+  "@passwordsdonotmatch": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "bycreatinganaccountyouagreetoour": "بإنشاء حساب فإنك توافق على الشروط والأحكام الخاصة بنا",
+  "@bycreatinganaccountyouagreetoour": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "alreadyhaveanaccount": "هل لديك حساب ؟",
+  "@alreadyhaveanaccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createAccount": "إنشاء حساب",
+  "@createAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "chooseyourfavouriteteams": "اختر فرقك المفضلة",
+  "@chooseyourfavouriteteams": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectyourteams": "اختر فرقك",
+  "@selectyourteams": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "successful": "ناجح",
+  "@successful": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "somethingwentwrong": "هناك خطأ ما",
+  "@somethingwentwrong": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addacomment": " اضف تعليق",
+  "@addacomment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addareply": "أضف ردًا",
+  "@addareply": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "signin": "تسجيل الدخول",
+  "@signin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "signup": "تسحيل حساب",
+  "@signup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleasesignintocontinue": "من فضلك سجل دخولك للمتابعة",
+  "@pleasesignintocontinue": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "allcategories": "جميع الفئات",
+  "@allcategories": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "favourite": "★  المغضلة",
+  "@favourite": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "allgames": "كل المباريات",
+  "@allgames": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "emailisnotvalid": "هذا البريد غير صالح",
+  "@emailisnotvalid": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "thisfieldisrequired": "هذا الحقل مطلوب",
+  "@thisfieldisrequired": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passeordcontain": "يجب أن تتكون كلمة المرور من 8 أرقام على الأقل",
+  "@passeordcontain": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mailnotvalid": "يجب تحتوي كلمة المرور على حرف خاص واحد على الاقل",
+  "@mailnotvalid": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

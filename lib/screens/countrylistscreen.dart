@@ -4,6 +4,7 @@ import 'package:gulfgoal/components/countrylist.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/country.dart';
 import 'package:gulfgoal/services/countryAPI.dart';
 
@@ -67,7 +68,8 @@ class _CountrylistscreenState extends State<Countrylistscreen> {
                                     title: new TextField(
                                       controller: controller,
                                       decoration: new InputDecoration(
-                                          hintText: 'Search',
+                                          hintText: AppLocalizations.of(context)
+                                              .search,
                                           border: InputBorder.none),
                                     ),
                                     // trailing: new IconButton(
@@ -92,7 +94,8 @@ class _CountrylistscreenState extends State<Countrylistscreen> {
                             ),
                             child: Boldaccectcolor(
                               size: 16,
-                              text: "Choose your favourite country",
+                              text:
+                                  AppLocalizations.of(context).choosefavcountry,
                             ),
                           ),
                           Padding(
@@ -122,7 +125,8 @@ class _CountrylistscreenState extends State<Countrylistscreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 28),
                             child: Contenttext(
-                              data: "select your country",
+                              data:
+                                  AppLocalizations.of(context).selectfavcountry,
                               size: 14,
                             ),
                           ),

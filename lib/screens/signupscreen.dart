@@ -6,11 +6,16 @@ import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/user.dart';
+import 'package:gulfgoal/screens/aftersignupscreen.dart';
 import 'package:gulfgoal/screens/countrylistscreen.dart';
+import 'package:gulfgoal/screens/localteamselection.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:gulfgoal/screens/signinscreen.dart';
 import 'package:gulfgoal/services/authAPI.dart';
+import 'package:provider/provider.dart';
 
 class Signupscreen extends StatefulWidget {
   @override
@@ -60,7 +65,7 @@ class _SignupscreenState extends State<Signupscreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Boldaccectcolor(
-                              text: "lets get started",
+                              text: AppLocalizations.of(context).letsgetstarted,
                               size: 16,
                             ),
                           ],
@@ -75,7 +80,8 @@ class _SignupscreenState extends State<Signupscreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Contenttext(
-                              data: "Create an account to continue",
+                              data: AppLocalizations.of(context)
+                                  .createanaccounttocontinue,
                               size: 14,
                             ),
                           ],
@@ -97,9 +103,9 @@ class _SignupscreenState extends State<Signupscreen> {
                             horizontal: 20, vertical: 5),
                         child: CustomTextfield(
                             controller: mailcontroller,
-                            hint: "Write your Email",
+                            hint: AppLocalizations.of(context).writeyourEmail,
                             isobscure: false,
-                            label: "Email",
+                            label: AppLocalizations.of(context).email,
                             priffix: Icons.mail_outline,
                             validator: 1),
                       ),
@@ -108,9 +114,10 @@ class _SignupscreenState extends State<Signupscreen> {
                             horizontal: 20, vertical: 5),
                         child: CustomTextfield(
                             controller: usernamecontroller,
-                            hint: "Write your username",
+                            hint:
+                                AppLocalizations.of(context).writeyourusername,
                             isobscure: false,
-                            label: "Username",
+                            label: AppLocalizations.of(context).username,
                             priffix: Icons.person_outline,
                             validator: 0),
                       ),
@@ -131,9 +138,9 @@ class _SignupscreenState extends State<Signupscreen> {
                             ),
                           ),
                           controller: passwordcontroller,
-                          hint: "Write your password",
+                          hint: AppLocalizations.of(context).writeyourpassword,
                           isobscure: isobsecurepass,
-                          label: "Password",
+                          label: AppLocalizations.of(context).password,
                           priffix: Icons.lock_outline,
                           validator: 2,
                         ),
@@ -164,11 +171,15 @@ class _SignupscreenState extends State<Signupscreen> {
                                 border: new OutlineInputBorder(
                                     borderSide:
                                         new BorderSide(color: accentcolor)),
-                                hintText: "Confirm your password",
-                                labelText: "Confirm password",
+                                hintText: AppLocalizations.of(context)
+                                    .confirmyourpassword,
+                                labelText: AppLocalizations.of(context)
+                                    .confirmpassword,
                                 labelStyle: TextStyle(
                                   color: textcolor,
-                                  fontFamily: 'cairo',
+                                  fontFamily: Provider.of<Userprovider>(context,
+                                          listen: false)
+                                      .font(context),
                                 ),
                                 prefixIcon: Icon(
                                   Icons.lock_outline,
@@ -179,7 +190,8 @@ class _SignupscreenState extends State<Signupscreen> {
                                 suffixStyle:
                                     const TextStyle(color: accentcolor)),
                             validator: (val) => MatchValidator(
-                                    errorText: 'passwords do not match')
+                                    errorText: AppLocalizations.of(context)
+                                        .passwordsdonotmatch)
                                 .validateMatch(confirmpasswordcontroller.text,
                                     passwordcontroller.text),
                           )),
@@ -198,8 +210,8 @@ class _SignupscreenState extends State<Signupscreen> {
                                 width: 14,
                               ),
                               Normaltext(
-                                string:
-                                    "By creating an account you agree to our T&C",
+                                string: AppLocalizations.of(context)
+                                    .bycreatinganaccountyouagreetoour,
                                 fontsize: 10,
                               ),
                             ],
@@ -218,7 +230,9 @@ class _SignupscreenState extends State<Signupscreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Contenttext(
-                                data: "Already have an account ?", size: 10),
+                                data: AppLocalizations.of(context)
+                                    .alreadyhaveanaccount,
+                                size: 10),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -227,7 +241,7 @@ class _SignupscreenState extends State<Signupscreen> {
                                         builder: (context) => Signinscreen()));
                               },
                               child: Boldaccectcolor(
-                                text: "Login",
+                                text: AppLocalizations.of(context).login,
                                 size: 10,
                               ),
                             )
@@ -347,7 +361,9 @@ class Signupsnackbutton extends StatelessWidget {
                         child: Text(
                           signup["msg"],
                           style: TextStyle(
-                              fontFamily: 'cairo',
+                              fontFamily: Provider.of<Userprovider>(context,
+                                      listen: false)
+                                  .font(context),
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w600),
@@ -358,7 +374,7 @@ class Signupsnackbutton extends StatelessWidget {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Countrylistscreen()));
+                            builder: (context) => Aftersignupscreen()));
                   });
                 } else {
                   HapticFeedback.mediumImpact();
@@ -393,7 +409,7 @@ class Signupsnackbutton extends StatelessWidget {
               }
             },
             child: Text(
-              'Create Account',
+              AppLocalizations.of(context).createAccount,
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'cairo',

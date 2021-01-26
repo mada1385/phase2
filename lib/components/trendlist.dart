@@ -84,6 +84,15 @@ class _TrendlistState extends State<Trendlist> {
   PageController controller = PageController();
   int pageIndex = 0;
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<Userprovider>(context, listen: false)
+          .setalltrends(widget.news);
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
@@ -91,7 +100,7 @@ class _TrendlistState extends State<Trendlist> {
       children: [
         Container(
           height: 250,
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width,
           child: PageView(
             onPageChanged: (value) {
               HapticFeedback.lightImpact();

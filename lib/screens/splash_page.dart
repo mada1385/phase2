@@ -19,22 +19,35 @@ class _SplashScreenState extends State<SplashScreen>
     SharedPreferences p = await SharedPreferences.getInstance();
     String x = await p.get("token");
     String y = p.get("username");
+    String z = p.get("id");
+    String i = p.get("image");
+
     if (x != null) {
       Provider.of<Userprovider>(context, listen: false).settoken(
         x,
       );
+      Provider.of<Userprovider>(context, listen: false).setid(
+        z,
+      );
       Provider.of<Userprovider>(context, listen: false).setusername(
         y,
+      );
+      Provider.of<Userprovider>(context, listen: false).setimage(
+        i,
       );
     } else {
       Provider.of<Userprovider>(context, listen: false).settoken(null);
     }
     print(
-        "provider from login check ${Provider.of<Userprovider>(context, listen: false).token}");
+        "provider from token check ${Provider.of<Userprovider>(context, listen: false).token}");
+    print(
+        "provider from id check ${Provider.of<Userprovider>(context, listen: false).id}");
   }
 
   @override
   void initState() {
+    // Provider.of<Userprovider>(context, listen: false).loadnews();
+
     // Provider.of<Userprovider>(context, listen: false).getfav();
     super.initState();
     logincheck();

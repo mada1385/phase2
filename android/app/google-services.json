@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "92718748969",
+    "project_id": "gulf-goal-app-malayalam",
+    "storage_bucket": "gulf-goal-app-malayalam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92718748969:android:14a8ec58bf9ea10d109338",
+        "android_client_info": {
+          "package_name": "com.gulfgoal.gulf_goal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92718748969-8ggelr5tgca4n2mluj9ff94215c72b5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gulfgoal.gulf_goal",
+            "certificate_hash": "991961c4dcb52e7fded9b2da576bd198c994df0d"
+          }
+        },
+        {
+          "client_id": "92718748969-vog37mvdsh1geok4b63k2rtdpl37bmph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4a4lnAnQdrUgT_kBhh3OC2D2OkjLGCLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92718748969-vog37mvdsh1geok4b63k2rtdpl37bmph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/commentmodel.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/comments.dart';
-import 'package:gulfgoal/models/news.dart';
 import 'package:provider/provider.dart';
 
 class Commentstream extends StatefulWidget {
@@ -32,16 +33,21 @@ class _CommentstreamState extends State<Commentstream> {
 
   @override
   void initState() {
+    // setState(() {
+    //   // liked = Provider.of<Userprovider>(context, listen: false)
+    //   //     .isliked(widget.news.likedby);
+    // });
     Provider.of<Userprovider>(context, listen: false).loadcomments(widget.id);
     _clockTimer = Timer.periodic(Duration(seconds: 20), (_) => isstrem());
     super.initState();
   }
 
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    // _userController.close();
     _clockTimer.cancel();
+
+    super.dispose();
+
+    // _userController.close();
   }
 
   @override
@@ -66,9 +72,11 @@ class _CommentstreamState extends State<Commentstream> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "No comments yet !",
+                      AppLocalizations.of(context).nocommentsye,
                       style: TextStyle(
-                          fontFamily: 'cairo',
+                          fontFamily:
+                              Provider.of<Userprovider>(context, listen: false)
+                                  .font(context),
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: accentcolor),

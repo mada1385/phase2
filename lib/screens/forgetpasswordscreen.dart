@@ -5,6 +5,7 @@ import 'package:gulfgoal/components/customtextfield.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 
 import 'nointernetscreen.dart';
 
@@ -52,7 +53,9 @@ class Forgetpasswordscreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Boldaccectcolor(text: "Forget password", size: 16),
+                        Boldaccectcolor(
+                            text: AppLocalizations.of(context).forgetpassword,
+                            size: 16),
                       ],
                     ),
                   ),
@@ -65,7 +68,7 @@ class Forgetpasswordscreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Contenttext(
-                          data: "We will send your password to your email",
+                          data: AppLocalizations.of(context).sendemail,
                           size: 14,
                         ),
                       ],
@@ -88,9 +91,9 @@ class Forgetpasswordscreen extends StatelessWidget {
                           horizontal: 20, vertical: 5),
                       child: CustomTextfield(
                           controller: mailcontroller,
-                          hint: "Write your Email",
+                          hint: AppLocalizations.of(context).writeyourEmail,
                           isobscure: false,
-                          label: "Email",
+                          label: AppLocalizations.of(context).email,
                           priffix: Icons.mail_outline,
                           validator: 1),
                     ),
@@ -104,7 +107,7 @@ class Forgetpasswordscreen extends StatelessWidget {
                             color: accentcolor,
                             onPressed: () async {},
                             child: Normaltext(
-                              string: 'Send password',
+                              string: AppLocalizations.of(context).sendpassword,
                               color: Colors.white,
                               fontsize: 16,
                             ),

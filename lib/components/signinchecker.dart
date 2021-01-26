@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/screens/signinscreen.dart';
 import 'package:gulfgoal/screens/signupscreen.dart';
 
@@ -38,7 +39,7 @@ class Signinchecher extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Signinscreen()));
                 },
                 child: CenterNormaltext(
-                  string: "Sign in  ",
+                  string: AppLocalizations.of(context).signin,
                   fontsize: 14,
                   color: Colors.white,
                 ),
@@ -67,7 +68,7 @@ class Signinchecher extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Signupscreen()));
                 },
                 child: CenterNormaltext(
-                  string: "Sign up  ",
+                  string: AppLocalizations.of(context).signup,
                   fontsize: 14,
                   color: accentcolor,
                 ),
@@ -80,7 +81,7 @@ class Signinchecher extends StatelessWidget {
         ),
         Normalaccecttext(
           size: 18,
-          text: "Please sign in to continue",
+          text: AppLocalizations.of(context).pleasesignintocontinue,
         ),
         SizedBox(
           height: 20,

@@ -1,51 +1,47 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:gulfgoal/screens/aftersignupscreen.dart';
+import 'package:gulfgoal/screens/fixedteamsscreen.dart';
+import 'package:gulfgoal/screens/localteamselection.dart';
+import 'package:gulfgoal/screens/signinscreen.dart';
 import 'package:gulfgoal/screens/splash_page.dart';
 import 'package:provider/provider.dart';
-import 'package:gulfgoal/screens/matchchatsceen.dart';
 import 'config/provider.dart';
+import 'locale/locales.dart';
 
-void main() async {
-  runApp(ChangeNotifierProvider(
-    create: (context) => Userprovider(),
-    child: ConnectivityAppWrapper(
-      app: MaterialApp(
-        localizationsDelegates: [
-          GlobalCupertinoLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: [
-          Locale("en", "US"),
-          Locale("fa", "IR"),
-          Locale(
-              'ar', ''), // Arabic// OR Locale('ar', 'AE') OR Other RTL locales
-        ],
-        locale: Locale("en", "US"),
-        title: 'Gulf football',
-        theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashScreen(),
-      ),
-    ),
-  ));
+void main() {
+  runApp(MyApp());
 }
 
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return ConnectivityAppWrapper(
-//       app: MaterialApp(
-//         title: 'Flutter Demo',
-//         theme: ThemeData(
-//           visualDensity: VisualDensity.adaptivePlatformDensity,
-//         ),
-//         home: ConnectivityWidgetWrapper(
-//             offlineWidget: Nointernetscreen(), child: Homescreen()),
-//       ),
-//     );
-//   }
-// }
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+          return ConnectivityAppWrapper(
+            app: ChangeNotifierProvider(
+              create: (context) => Userprovider(),
+              child: MaterialApp(
+                localizationsDelegates: [
+                  AppLocalizationsDelegate(),
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales: [
+                  Locale('en', ""),
+                  Locale("ar", "MA"),
+                ],
+                title: 'Gulf Goal',
+                theme: ThemeData(
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                ),
+                home: SplashScreen(),
+              ),
+            ),
+          );
+        });
+  }
+}

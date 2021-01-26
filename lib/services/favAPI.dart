@@ -7,7 +7,7 @@ class FavouriteAPI {
     for (var item in x) {
       try {
         final favouriteteam = await post(
-            "http://gulf-goal.herokuapp.com/api/teams/add-teams-to-favorites",
+            "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/teams/add-teams-to-favorites",
             body: {
               "team_name": item.teamname,
               "team_badge": item.teambadge,
@@ -28,7 +28,7 @@ class FavouriteAPI {
   Future deletefavourite(String token, String id) async {
     try {
       final favouriteteam = await post(
-          "http://gulf-goal.herokuapp.com/api/teams/remove-team-to-favorites",
+          "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/teams/remove-team-to-favorites",
           headers: {
             // 'Content-Type': 'application/json',
             // 'Accept': 'application/json',
@@ -56,7 +56,7 @@ class FavouriteAPI {
   Future<List<Teams>> getfavourite(String token) async {
     try {
       final favouriteteam = await get(
-          "http://gulf-goal.herokuapp.com/api/teams/all-favorites",
+          "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/teams/all-favorites",
           headers: {
             // 'Content-Type': 'application/json',
             // 'Accept': 'application/json',
@@ -111,7 +111,7 @@ class FavouriteAPI {
   Future getFavMatches(String token, String date) async {
     try {
       Response res = await get(
-          "http://gulf-goal.herokuapp.com/api/teams/following-coming-matches/$date",
+          "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/teams/following-coming-matches/$date",
           headers: {
             "date": date,
             "Authorization": "bearer ${token}",

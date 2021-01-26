@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'nointernetscreen.dart';
 
 class Contactusscreen extends StatelessWidget {
@@ -30,7 +31,9 @@ class Contactusscreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Boldaccectcolor(
-                                text: "Contact us",
+                                text: AppLocalizations.of(context)
+                                    .contactus
+                                    .toString(),
                                 size: 16,
                               ),
                             ],
@@ -40,7 +43,7 @@ class Contactusscreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Contenttext(
-                              data: "Get help and support or get in touch",
+                              data: AppLocalizations.of(context).gethelp,
                               size: 14,
                             ),
                           ],
@@ -92,7 +95,7 @@ class Contactusscreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Boldaccectcolor(
-                              text: "Social Media",
+                              text: AppLocalizations.of(context).socialMedia,
                               size: 16,
                             ),
                           ],

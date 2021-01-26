@@ -7,8 +7,8 @@ class TrendAPI {
     print("trend api activated");
 
     try {
-      Response res =
-          await get("http://gulf-goal.herokuapp.com/api/news/all-trends");
+      Response res = await get(
+          "http://gulf-goal-backend.us-east-2.elasticbeanstalk.com/api/news/all-trends");
       print(res.statusCode);
       var body;
       if (res.statusCode == 200) {

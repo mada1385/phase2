@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/components/commenttextfield.dart';
 import 'package:gulfgoal/config/provider.dart';
-import 'package:gulfgoal/services/comments.dart';
+import 'package:gulfgoal/locale/locales.dart';
+import 'package:gulfgoal/services/commentsAPI.dart';
 import 'package:provider/provider.dart';
 
 class Sendreply extends StatelessWidget {
@@ -14,9 +15,10 @@ class Sendreply extends StatelessWidget {
     this.padding = 28,
     @required this.newsid,
     @required this.commentid,
+    this.match = false,
   }) : super(key: key);
   final String newsid, commentid;
-
+  final bool match;
   final double padding;
 
   @override
@@ -53,7 +55,7 @@ class Sendreply extends StatelessWidget {
                                   autofoucs: true,
                                   controller: replycontroller,
                                   validator: 0,
-                                  hint: " add a reply",
+                                  hint: AppLocalizations.of(context).addareply,
                                 ),
                               ),
                               SizedBox(
@@ -69,20 +71,45 @@ class Sendreply extends StatelessWidget {
                             size: 20,
                             color: accentcolor,
                           ),
-                          onPressed: () {
-                            print(replycontroller.text);
-                            CommentApi()
-                                .postreply(
-                                    replycontroller.text,
-                                    Provider.of<Userprovider>(context,
-                                            listen: false)
-                                        .token,
-                                    newsid,
-                                    commentid)
-                                .then((value) => Provider.of<Userprovider>(
-                                        context,
+                          onPressed: () async {
+                            if (Provider.of<Userprovider>(context,
                                         listen: false)
-                                    .loadcomments(newsid));
+                                    .token !=
+                                null) {
+                              if (match == false) {
+                                print("sending news commet");
+                                print(replycontroller.text);
+                                await CommentApi()
+                                    .postreply(
+                                        replycontroller.text,
+                                        Provider.of<Userprovider>(context,
+                                                listen: false)
+                                            .token,
+                                        newsid,
+                                        commentid)
+                                    .then((value) => Provider.of<Userprovider>(
+                                            context,
+                                            listen: false)
+                                        .loadcomments(newsid));
+                                replycontroller.clear();
+                              } else {
+                                print("sending match commet");
+
+                                await CommentApi()
+                                    .postmatchreply(
+                                        replycontroller.text,
+                                        Provider.of<Userprovider>(context,
+                                                listen: false)
+                                            .token,
+                                        newsid,
+                                        commentid)
+                                    .then((value) => Provider.of<Userprovider>(
+                                            context,
+                                            listen: false)
+                                        .loadmatchcomments(newsid));
+                              }
+                              FocusScope.of(context).unfocus();
+                            }
                           })
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

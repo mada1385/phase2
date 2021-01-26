@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/config/colors.dart';
+import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/models/match.dart';
+import 'package:provider/provider.dart';
 
 class Matchcards extends StatelessWidget {
   const Matchcards({
@@ -36,7 +38,10 @@ class Matchcards extends StatelessWidget {
                                     i["home_fault"],
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
-                                        fontFamily: 'poppin',
+                                        fontFamily: Provider.of<Userprovider>(
+                                                context,
+                                                listen: false)
+                                            .font(context),
                                         color: Colors.black,
                                         fontSize: 10,
                                         fontWeight: FontWeight.normal),
@@ -77,7 +82,10 @@ class Matchcards extends StatelessWidget {
                                 i["time"],
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontFamily: 'poppin',
+                                    fontFamily: Provider.of<Userprovider>(
+                                            context,
+                                            listen: false)
+                                        .font(context),
                                     color: Colors.black,
                                     fontSize: 10,
                                     fontWeight: FontWeight.normal),
@@ -114,7 +122,10 @@ class Matchcards extends StatelessWidget {
                                     i["away_fault"],
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
-                                        fontFamily: 'poppin',
+                                        fontFamily: Provider.of<Userprovider>(
+                                                context,
+                                                listen: false)
+                                            .font(context),
                                         color: Colors.black,
                                         fontSize: 10,
                                         fontWeight: FontWeight.normal),

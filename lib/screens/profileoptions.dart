@@ -2,11 +2,13 @@ import 'dart:io';
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_image/network.dart';
 import 'package:gulfgoal/components/profileoptioncard.dart';
 import 'package:gulfgoal/components/signinchecker.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/screens/contactusscreen.dart';
 import 'package:gulfgoal/screens/aboutthecomapayscreen.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
@@ -32,7 +34,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
 
     setState(() {
       _image = image;
-      print('Image Path $_image');
+      print('Image Path ${_image.path}');
     });
   }
 
@@ -97,7 +99,8 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                             _image,
                                             Provider.of<Userprovider>(context,
                                                     listen: false)
-                                                .token);
+                                                .token,
+                                            context);
                                       },
                                       child: Container(
                                         height: 81,
@@ -105,9 +108,17 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                         child: CircleAvatar(
                                             backgroundImage: _image != null
                                                 ? FileImage(_image)
-                                                : AssetImage(
-                                                    "asset/nopic.jpg",
-                                                  )),
+                                                : Provider.of<Userprovider>(
+                                                                context)
+                                                            .image !=
+                                                        null
+                                                    ? NetworkImageWithRetry(
+                                                        Provider.of<Userprovider>(
+                                                                context)
+                                                            .image)
+                                                    : AssetImage(
+                                                        "asset/nopic.jpg",
+                                                      )),
                                       ),
                                     ),
                                     SizedBox(
@@ -143,7 +154,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                             activeTrackColor: accentcolor,
                             activeColor: accentcolor,
                           ),
-                          title: "Push Notifications",
+                          title: AppLocalizations.of(context).pushNotifications,
                         ),
                         Profileoptioncard(
                           ontap: () {
@@ -154,7 +165,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                         Aboutthecomapayscreen()));
                           },
                           // icon: Icon(Icons.person),
-                          title: "Company profile ",
+                          title: AppLocalizations.of(context).companyprofile,
                         ),
                         Profileoptioncard(
                           ontap: () {
@@ -164,7 +175,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                     builder: (context) => Contactusscreen()));
                           },
                           // icon: Icon(Icons.payment),
-                          title: "Contact us",
+                          title: AppLocalizations.of(context).contactus,
                         ),
                         Profileoptioncard(
                           ontap: () {
@@ -174,7 +185,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                     builder: (context) => Termsofusescreen()));
                           },
                           // icon: Icon(Icons.call),
-                          title: "Terms of Services",
+                          title: AppLocalizations.of(context).termsofServices,
                         ),
                         Profileoptioncard(
                           ontap: () {
@@ -185,7 +196,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                         Privacypolicyscreen()));
                           },
                           // icon: Icon(Icons.payment),
-                          title: "Privacy policy",
+                          title: AppLocalizations.of(context).termsofServices,
                         ),
                         Profileoptioncard(
                           // icon: Icon(Icons.payment),

@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/components/commenttextfield.dart';
 import 'package:gulfgoal/config/provider.dart';
-import 'package:gulfgoal/services/comments.dart';
+import 'package:gulfgoal/locale/locales.dart';
+import 'package:gulfgoal/services/commentsAPI.dart';
 import 'package:provider/provider.dart';
 
-class Sendcomment extends StatelessWidget {
+class Sendcomment extends StatefulWidget {
   Sendcomment({
     Key key,
     this.padding = 28,
     @required this.newsid,
+    this.match = false,
   }) : super(key: key);
 
-  final commentcontroller = TextEditingController();
-
   final String newsid;
+  final bool match;
 
   final double padding;
+
+  @override
+  _SendcommentState createState() => _SendcommentState();
+}
+
+class _SendcommentState extends State<Sendcomment> {
+  final commentcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +40,17 @@ class Sendcomment extends StatelessWidget {
           height: 15,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding),
+          padding: EdgeInsets.symmetric(horizontal: widget.padding),
           child: Row(
             children: [
               Row(
                 children: [
                   CircleAvatar(
+                    backgroundImage:
+                        Provider.of<Userprovider>(context).image != null
+                            ? NetworkImageWithRetry(
+                                Provider.of<Userprovider>(context).image)
+                            : AssetImage("asset/nopic.jpg"),
                     backgroundColor: textcolor,
                   ),
                   SizedBox(
@@ -51,7 +65,7 @@ class Sendcomment extends StatelessWidget {
                         child: CommentCustomTextfield(
                           controller: commentcontroller,
                           validator: 0,
-                          hint: " add a comment",
+                          hint: AppLocalizations.of(context).addacomment,
                         ),
                       ),
                       SizedBox(
@@ -67,16 +81,56 @@ class Sendcomment extends StatelessWidget {
                     size: 30,
                     color: accentcolor,
                   ),
-                  onPressed: () {
-                    CommentApi()
-                        .postcomment(
-                            commentcontroller.text,
-                            Provider.of<Userprovider>(context, listen: false)
-                                .token,
-                            newsid)
-                        .then((value) =>
-                            Provider.of<Userprovider>(context, listen: false)
-                                .loadcomments(newsid));
+                  onPressed: () async {
+                    if (Provider.of<Userprovider>(context, listen: false)
+                            .token !=
+                        null) {
+                      if (widget.match == false) {
+                        await CommentApi()
+                            .postcomment(
+                                commentcontroller.text,
+                                Provider.of<Userprovider>(context,
+                                        listen: false)
+                                    .token,
+                                widget.newsid)
+                            .then((value) => Provider.of<Userprovider>(context,
+                                    listen: false)
+                                .loadcomments(widget.newsid));
+                      } else {
+                        await CommentApi()
+                            .postmatchcomment(
+                                commentcontroller.text,
+                                Provider.of<Userprovider>(context,
+                                        listen: false)
+                                    .token,
+                                widget.newsid)
+                            .then((value) => Provider.of<Userprovider>(context,
+                                    listen: false)
+                                .loadmatchcomments(widget.newsid));
+                      }
+                      commentcontroller.clear();
+                      FocusScope.of(context).unfocus();
+                    } else {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                          duration: Duration(seconds: 1),
+                          elevation: 10,
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          backgroundColor: accentcolor,
+                          content: Container(
+                              child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              "You must register to comment",
+                              style: TextStyle(
+                                  fontFamily: Provider.of<Userprovider>(context,
+                                          listen: false)
+                                      .font(context),
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ))));
+                    }
                   })
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

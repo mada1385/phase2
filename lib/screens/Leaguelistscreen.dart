@@ -4,6 +4,7 @@ import 'package:gulfgoal/components/leaguelist.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
+import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/Leagues.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:gulfgoal/services/leagueAPI.dart';
@@ -70,7 +71,8 @@ class _LeaguelistscreenState extends State<Leaguelistscreen> {
                                     title: new TextField(
                                       controller: controller,
                                       decoration: new InputDecoration(
-                                          hintText: 'Search',
+                                          hintText: AppLocalizations.of(context)
+                                              .search,
                                           border: InputBorder.none),
                                     ),
                                     // trailing: new IconButton(
@@ -95,7 +97,8 @@ class _LeaguelistscreenState extends State<Leaguelistscreen> {
                             ),
                             child: Boldaccectcolor(
                               size: 16,
-                              text: "Choose your favourite league",
+                              text:
+                                  AppLocalizations.of(context).favouriteleague,
                             ),
                           ),
                           Padding(
@@ -125,7 +128,7 @@ class _LeaguelistscreenState extends State<Leaguelistscreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 28),
                             child: Contenttext(
-                              data: "select your league",
+                              data: AppLocalizations.of(context).selectleague,
                               size: 14,
                             ),
                           ),
