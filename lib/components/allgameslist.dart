@@ -30,8 +30,8 @@ class _AllgameslistState extends State<Allgameslist> {
 
   @override
   void initState() {
-    Provider.of<Userprovider>(context, listen: false)
-        .loadAllgamesdetailsDetails();
+    // Provider.of<Userprovider>(context, listen: false)
+    //     .loadAllgamesdetailsDetails();
     _clockTimer = Timer.periodic(Duration(seconds: 20), (_) => isstrem());
     super.initState();
   }

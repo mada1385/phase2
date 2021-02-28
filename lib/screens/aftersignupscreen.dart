@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image/network.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/provider.dart';

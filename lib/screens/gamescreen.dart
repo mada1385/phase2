@@ -106,7 +106,14 @@ class _GamescreenState extends State<Gamescreen> {
 
   @override
   void initState() {
-    // Provider.of<Userprovider>(context, listen: false).islive();
+    if (Provider.of<Userprovider>(context, listen: false).gamescreenindex ==
+        0) {
+      Provider.of<Userprovider>(context, listen: false)
+          .loadfavgamesdetailsDetails();
+    } else {
+      Provider.of<Userprovider>(context, listen: false)
+          .loadAllgamesdetailsDetails();
+    }
 
     super.initState();
   }
@@ -174,8 +181,16 @@ class _GamescreenState extends State<Gamescreen> {
                                 .setleaugeindex(index);
                             Provider.of<Userprovider>(context, listen: false)
                                 .setgamescreenindex(index);
-                            Provider.of<Userprovider>(context, listen: false)
-                                .loadAllgamesdetailsDetails();
+                            if (Provider.of<Userprovider>(context,
+                                        listen: false)
+                                    .gamescreenindex ==
+                                0) {
+                              Provider.of<Userprovider>(context, listen: false)
+                                  .loadfavgamesdetailsDetails();
+                            } else {
+                              Provider.of<Userprovider>(context, listen: false)
+                                  .loadAllgamesdetailsDetails();
+                            }
                           });
                         },
                         child: Padding(

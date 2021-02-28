@@ -100,8 +100,7 @@ class _SigninscreenState extends State<Signinscreen> {
                         height: SizeConfig.blockSizeVertical * 5,
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: CustomTextfield(
                             controller: mailcontroller,
                             hint: AppLocalizations.of(context).writeyourEmail,

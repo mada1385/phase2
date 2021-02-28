@@ -31,8 +31,6 @@ class _FavouritematchesscreenState extends State<Favouritematchesscreen> {
 
   @override
   void initState() {
-    Provider.of<Userprovider>(context, listen: false)
-        .loadfavgamesdetailsDetails();
     _clockTimer = Timer.periodic(Duration(seconds: 20), (_) => isstrem());
     super.initState();
   }

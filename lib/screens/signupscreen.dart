@@ -10,8 +10,6 @@ import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/locale/locales.dart';
 import 'package:gulfgoal/models/user.dart';
 import 'package:gulfgoal/screens/aftersignupscreen.dart';
-import 'package:gulfgoal/screens/countrylistscreen.dart';
-import 'package:gulfgoal/screens/localteamselection.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
 import 'package:gulfgoal/screens/signinscreen.dart';
 import 'package:gulfgoal/services/authAPI.dart';
@@ -248,56 +246,28 @@ class _SignupscreenState extends State<Signupscreen> {
                           ],
                         ),
                       ),
-                      // SizedBox(
-                      //   height: 25,
-                      // ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     Text(
-                      //       "او انشأ حساب بواسطة",
-                      //       style: TextStyle(
-                      //           color: textcolor,
-                      //           fontSize: 20,
-                      //           fontWeight: FontWeight.bold),
-                      //     ),
-                      //   ],
-                      // ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     GestureDetector(
-                      //       child: Image.asset(
-                      //         "asset/facebook.png",
-                      //         width: 40,
-                      //         height: 40,
-                      //       ),
-                      //     ),
-                      //     SizedBox(
-                      //       width: 20,
-                      //     ),
-                      //     GestureDetector(
-                      //       onTap: () async {
-                      //         final user = await Authapi().handleSignIn(context);
-                      //         if (user.uid != null) {
-                      //           Navigator.pushReplacement(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (context) =>
-                      //                       Countrylistscreen()));
-                      //         }
-                      //       },
-                      //       child: Image.asset(
-                      //         "asset/Google.png",
-                      //         width: 40,
-                      //         height: 40,
-                      //       ),
-                      //     )
-                      //   ],
-                      // ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Or sign in with :",
+                            style: TextStyle(
+                                color: textcolor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Signinwithgoogle()],
+                      ),
                       SizedBox(
                         height: 20,
                       )

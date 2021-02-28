@@ -16,14 +16,10 @@ class Teamcard extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Hero(
-          // transitionOnUserGestures: true,
-          tag: logourl,
-          child: Image.network(
-            logourl,
-            width: 41,
-            height: 41,
-          ),
+        Image.network(
+          logourl,
+          width: 41,
+          height: 41,
         ),
         Flexible(
           child: Text(

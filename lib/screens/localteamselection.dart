@@ -1,20 +1,12 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image/network.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gulfgoal/components/selectfixedteamlist.dart';
 import 'package:gulfgoal/components/teamslist.dart';
 import 'package:gulfgoal/components/texts.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
-import 'package:gulfgoal/config/provider.dart';
 import 'package:gulfgoal/models/teams.dart';
-import 'package:gulfgoal/screens/fixedteamsscreen.dart';
-import 'package:gulfgoal/screens/homescreen.dart';
 import 'package:gulfgoal/screens/nointernetscreen.dart';
-import 'package:gulfgoal/services/favAPI.dart';
 import 'package:gulfgoal/services/teamsAPI.dart';
-import 'package:provider/provider.dart';
 
 class Localteamselection extends StatefulWidget {
   @override

@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "92718748969-8ggelr5tgca4n2mluj9ff94215c72b5d.apps.googleusercontent.com",
+          "client_id": "92718748969-94vletqg182sf1g2st0hkqtr69om74nb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.gulfgoal.gulf_goal",
             "certificate_hash": "991961c4dcb52e7fded9b2da576bd198c994df0d"
+          }
+        },
+        {
+          "client_id": "92718748969-dp0strck5365t5osjhldpofmmsovodht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gulfgoal.gulf_goal",
+            "certificate_hash": "e4ac39d0bf320cc6ef4dd30683ea3d40d9d25fe9"
+          }
+        },
+        {
+          "client_id": "92718748969-tcmbi3nl7fd3ruk6mqn0icrio19dj44t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gulfgoal.gulf_goal",
+            "certificate_hash": "71ca5bbcd9790607bae154f15966ce7b573a25f5"
           }
         },
         {

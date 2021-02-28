@@ -35,16 +35,13 @@ class Matchtile extends StatelessWidget {
                       flex: 4,
                       child: Column(
                         children: [
-                          Hero(
-                            tag: match.home.logoUrl,
-                            child: Image(
-                                image: new NetworkImageWithRetry(
-                                  match.home.logoUrl,
-                                ),
-                                width: 32,
-                                height: 32,
-                                fit: BoxFit.cover),
-                          ),
+                          Image(
+                              image: new NetworkImageWithRetry(
+                                match.home.logoUrl,
+                              ),
+                              width: 32,
+                              height: 32,
+                              fit: BoxFit.cover),
                           CenterNormaltext(
                             string: match.home.name,
                             color: Colors.grey,
@@ -84,16 +81,13 @@ class Matchtile extends StatelessWidget {
                       flex: 4,
                       child: Column(
                         children: [
-                          Hero(
-                            tag: match.away.logoUrl,
-                            child: Image(
-                                image: new NetworkImageWithRetry(
-                                  match.away.logoUrl,
-                                ),
-                                width: 32,
-                                height: 32,
-                                fit: BoxFit.cover),
-                          ),
+                          Image(
+                              image: new NetworkImageWithRetry(
+                                match.away.logoUrl,
+                              ),
+                              width: 32,
+                              height: 32,
+                              fit: BoxFit.cover),
                           CenterNormaltext(
                             string: match.away.name,
                             color: Colors.grey,

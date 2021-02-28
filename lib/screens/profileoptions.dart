@@ -185,7 +185,7 @@ class _ProfileoptionsState extends State<Profileoptions> {
                                     builder: (context) => Termsofusescreen()));
                           },
                           // icon: Icon(Icons.call),
-                          title: AppLocalizations.of(context).termsofServices,
+                          title: AppLocalizations.of(context).privacypolicy,
                         ),
                         Profileoptioncard(
                           ontap: () {
